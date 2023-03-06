@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import * as dotenv from "dotenv";
 import testRoutes from "./routes/testRoutes.js";
+import teacherRoutes from "./routes/teacherRoutes.js";
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ server.use(express.json());
 server.use(cors()); 
 
 server.use("/test", testRoutes);
+server.use("/teacher", teacherRoutes);
 // Set up a home/base route
 
 server.get("/", (req, res) => {
