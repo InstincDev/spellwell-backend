@@ -4,6 +4,7 @@ import * as dotenv from "dotenv";
 import testRoutes from "./routes/testRoutes.js";
 import teacherRoutes from "./routes/teacherRoutes.js";
 import studentRoutes from "./routes/studentRoutes.js"
+import parentRoutes from "./routes/parentRoutes.js"
 
 
 dotenv.config();
@@ -18,6 +19,7 @@ server.use(cors());
 server.use("/test", testRoutes);
 server.use("/teacher", teacherRoutes);
 server.use("/student", studentRoutes);
+server.use("/parent", parentRoutes);
 // Set up a home/base route
 
 server.get("/", (req, res) => {
