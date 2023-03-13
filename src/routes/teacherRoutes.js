@@ -16,4 +16,15 @@ router.post("/", async (req, res) =>{
     }
 })
 
+router.get("/", async(req,res) =>{
+ try {
+    await connectDB()
+    const teacher = await Teacher.find()
+    res.status(200).json(teacher)
+ } catch (error) {
+    console.log(error.message)
+    res.send(error.message).status(400)
+ }
+})
+
 export default router

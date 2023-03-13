@@ -23,4 +23,16 @@ router.post("/", async (req, res) => {
     }
 });
 
+router.get("/", async (req,res) =>{
+    try {
+        await connectDB();
+       const test = await Test.find() 
+       console.log(test);
+        res.status(200).send()
+    } catch (error) {
+       console.log(error.message);
+       res.send(error.message).status(400) 
+    }
+})
+
 export default router
