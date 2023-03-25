@@ -3,9 +3,9 @@ import cors from "cors";
 import * as dotenv from "dotenv";
 import testRoutes from "./routes/testRoutes.js";
 import teacherRoutes from "./routes/teacherRoutes.js";
-import studentRoutes from "./routes/studentRoutes.js"
-import parentRoutes from "./routes/parentRoutes.js"
-
+import studentRoutes from "./routes/studentRoutes.js";
+import parentRoutes from "./routes/parentRoutes.js";
+import assignmentRoutes from "./routes/assignmentRoutes.js";
 
 dotenv.config();
 
@@ -14,18 +14,18 @@ const PORT = process.env.PORT || 3001;
 
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
-server.use(cors()); 
+server.use(cors());
 
 server.use("/test", testRoutes);
 server.use("/teacher", teacherRoutes);
 server.use("/student", studentRoutes);
 server.use("/parent", parentRoutes);
+server.use("/assignment", assignmentRoutes);
 // Set up a home/base route
 
 server.get("/", (req, res) => {
     res.send("Hello World");
 });
-
 
 // Listen with server
 server.listen(PORT, () => {
