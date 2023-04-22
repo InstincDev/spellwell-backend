@@ -1,11 +1,11 @@
-import {Schema, model} from "mongoose";
+import { Schema, model } from "mongoose";
+import { WordSchema } from "./wordModels.js";
 
 const Test = new Schema({
-    title: {type:String, required: true},
-    baseWords:{type: [String], required: true},
-    challengeWords: {type: [String], required:true},
-    teacherId: {type: Schema.Types.ObjectId}
-    
-})
+    title: { type: String, required: true },
+    baseWords: { type: [WordSchema] },
+    challengeWords: { type: [WordSchema] },
+    teacherId: { type: Schema.Types.ObjectId },
+});
 
-export default model("Test", Test)
+export default model("Test", Test);
